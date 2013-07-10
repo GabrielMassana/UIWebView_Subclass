@@ -18,7 +18,7 @@
 		C00C0763178C5D9200B51CD9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C00C0762178C5D9200B51CD9 /* Default-568h@2x.png */; };
 		C00C0766178C5D9200B51CD9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00C0764178C5D9200B51CD9 /* MainStoryboard.storyboard */; };
 		C00C0769178C5D9200B51CD9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00C0768178C5D9200B51CD9 /* ViewController.m */; };
-		C0D63CBA178C600C00BDA69C /* GMWebView_Subclass.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D63CB9178C600C00BDA69C /* GMWebView_Subclass.m */; };
+		C0D63CBA178C600C00BDA69C /* GMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D63CB9178C600C00BDA69C /* GMWebView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +38,8 @@
 		C00C0765178C5D9200B51CD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C00C0767178C5D9200B51CD9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C00C0768178C5D9200B51CD9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C0D63CB8178C600C00BDA69C /* GMWebView_Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWebView_Subclass.h; sourceTree = "<group>"; };
-		C0D63CB9178C600C00BDA69C /* GMWebView_Subclass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMWebView_Subclass.m; sourceTree = "<group>"; };
+		C0D63CB8178C600C00BDA69C /* GMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMWebView.h; sourceTree = "<group>"; };
+		C0D63CB9178C600C00BDA69C /* GMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMWebView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +91,8 @@
 				C00C0764178C5D9200B51CD9 /* MainStoryboard.storyboard */,
 				C00C0767178C5D9200B51CD9 /* ViewController.h */,
 				C00C0768178C5D9200B51CD9 /* ViewController.m */,
-				C0D63CB8178C600C00BDA69C /* GMWebView_Subclass.h */,
-				C0D63CB9178C600C00BDA69C /* GMWebView_Subclass.m */,
+				C0D63CB8178C600C00BDA69C /* GMWebView.h */,
+				C0D63CB9178C600C00BDA69C /* GMWebView.m */,
 				C00C0753178C5D9100B51CD9 /* Supporting Files */,
 			);
 			path = Subclass_UIWebView;
@@ -181,7 +181,7 @@
 				C00C0759178C5D9100B51CD9 /* main.m in Sources */,
 				C00C075D178C5D9100B51CD9 /* AppDelegate.m in Sources */,
 				C00C0769178C5D9200B51CD9 /* ViewController.m in Sources */,
-				C0D63CBA178C600C00BDA69C /* GMWebView_Subclass.m in Sources */,
+				C0D63CBA178C600C00BDA69C /* GMWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

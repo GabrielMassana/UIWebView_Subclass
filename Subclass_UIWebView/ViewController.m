@@ -7,10 +7,14 @@
 //
 
 #import "ViewController.h"
-#import "GMWebView_Subclass.h"
+#import "GMWebView.h"
 
-static const int kWebViewWidth = 320;
-static const int kWebViewHeight = 480;
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+
+static const int kInitialWebViewWidthPosition = 0;
+static const int kXPositionZero = 0;
+static const int kYPositionZero = 0;
 
 @interface ViewController ()
 
@@ -24,28 +28,29 @@ static const int kWebViewHeight = 480;
 
     NSArray *arrayURLs = @[@"http://www.google.com",@"http://www.gabrielmassana.com",@"http://www.gencat.cat"];
     
-    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
-    [scrollView setContentSize:CGSizeMake(960, 480)];
+    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(kXPositionZero, kYPositionZero, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [scrollView setContentSize:CGSizeMake(SCREEN_WIDTH * [arrayURLs count], SCREEN_HEIGHT)];
     [scrollView setPagingEnabled:YES];
+    [scrollView setBackgroundColor:[UIColor orangeColor]];
     [self.view addSubview:scrollView];
     
-    int width = 0;
+    int width = kInitialWebViewWidthPosition;
     
     for (NSString *string in arrayURLs)
     {
-        GMWebView_Subclass *webView = [[GMWebView_Subclass alloc]initWithFrame:CGRectMake(width, 0, kWebViewWidth, kWebViewHeight)];
+        GMWebView *webView = [[GMWebView alloc]initWithFrame:CGRectMake(width, kYPositionZero, SCREEN_WIDTH, SCREEN_HEIGHT)];
         webView.delegate = self;
+        [webView setOpaque:NO];
         NSURL *url = [NSURL URLWithString:string];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [webView loadRequest:request];
         [webView setScalesPageToFit:YES];
         [scrollView addSubview:webView];
         
-        width += kWebViewWidth;
+        width += SCREEN_WIDTH;
         
-        [[webView GMActivityIndicator] startAnimating];
-        [[webView GMActivityIndicator] setHidden:NO];
-        [[webView GMActivityIndicator] setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+        [[webView activityIndicator] startAnimating];
+        [[webView activityIndicator] setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
     }
 }
 
@@ -59,10 +64,9 @@ static const int kWebViewHeight = 480;
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView
 {
-    GMWebView_Subclass *temp = (GMWebView_Subclass *) aWebView;
-    [[temp GMActivityIndicator] stopAnimating];
-    [[temp GMActivityIndicator] setHidden:YES];
-    [[temp GMActivityIndicator] removeFromSuperview];
+    GMWebView *webView = (GMWebView *) aWebView;
+    [[webView activityIndicator] stopAnimating];
+    [[webView activityIndicator] removeFromSuperview];
 }
 
 #pragma mark - Supported Interface Orientations
